@@ -83,11 +83,20 @@ function Main() {
       setUrls(urls);
     });
   }, []);
+  function reloadImages(breed) {
+
+    fetchImages(breed).then((urls) => {
+
+      setUrls(urls);
+
+    });
+
+  }
   return (
     <main>
       <section className="section">
         <div className="container">
-          <Form />
+          <Form onFormSubmit={reloadImages} />
         </div>
       </section>
       <section className="section">
