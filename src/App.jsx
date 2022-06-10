@@ -47,10 +47,15 @@ function Gallery(props) {
   );
 }
 
-function Form() {
+function Form(props) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const { breed } = event.target.elements;
+    props.onFormSubmit(breed.value);
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="field has-addons">
           <div className="control is-expanded">
             <div className="select is-fullwidth">
